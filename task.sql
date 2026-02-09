@@ -8,13 +8,13 @@ CREATE TABLE Countries (
     ID INT,
     Name VARCHAR(50),
     PRIMARY KEY (ID)
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE Products (
     ID INT,
     ProductName VARCHAR(50),
     PRIMARY KEY (ID)
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE Warehouses (
     ID INT,
@@ -23,7 +23,7 @@ CREATE TABLE Warehouses (
     CountryID INT,
     PRIMARY KEY (ID),
     FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE ProductInventory (
     ID INT,
@@ -33,7 +33,7 @@ CREATE TABLE ProductInventory (
     PRIMARY KEY (ID),
     FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE NO ACTION,
     FOREIGN KEY (WarehouseID) REFERENCES Warehouses(ID) ON DELETE NO ACTION
-);
+) ENGINE=InnoDB;
 
 -- Populate test data
 
